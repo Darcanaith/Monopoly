@@ -1,18 +1,46 @@
 package monopoly;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class Jugador {
     private String Nombre;
     private enum Color{};
     private Integer Posicion;
     private Integer Dinero = 10000;
-    private Integer Casillas_adquiridas;
+    private ArrayList<String> Casillas_adquiridas;
 
     //Creamos contructor de clase Jugador
     public Jugador(String nombre, String color, Integer posicion,  Integer casillas){
         this.Nombre = nombre;
         this.Posicion = posicion;
-        this.Casillas_adquiridas = casillas;
     }
+
+    //Eliminar casillas jugador
+    public void eliminar_jugador(){
+        this.Casillas_adquiridas.clear();//Por hacer
+    }
+
+
+    //Indicar si esta encarcelado o no
+    public boolean encarcelado(){
+        if(this.Posicion == null){
+            return false;}
+        else{
+            return true;
+    }}
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String getNombre() {
         return Nombre;
@@ -38,12 +66,5 @@ public class Jugador {
         Dinero = dinero;
     }
 
-    public Integer getCasillas() {
-        return Casillas_adquiridas;
-    }
-
-    public void setCasillas(Integer casillas) {
-        Casillas_adquiridas = casillas;
-    }
 
 }
