@@ -5,13 +5,13 @@ public class Jugador {
     private String Color;
     private Integer Posicion;
     private Integer Dinero = 1000;
-    private Integer Casillas;
+    private Integer Casillas_adquiridas;
 
     public Jugador(String nombre, String color, Integer posicion,  Integer casillas){
         this.Nombre = nombre;
         this.Color = color;
         this.Posicion = posicion;
-        this.Casillas = casillas;
+        this.Casillas_adquiridas = casillas;
     }
 
     public String getNombre() {
@@ -47,11 +47,11 @@ public class Jugador {
     }
 
     public Integer getCasillas() {
-        return Casillas;
+        return Casillas_adquiridas;
     }
 
     public void setCasillas(Integer casillas) {
-        Casillas = casillas;
+        Casillas_adquiridas = casillas;
     }
 
 }
