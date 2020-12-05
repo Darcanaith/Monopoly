@@ -2,14 +2,14 @@ package monopoly;
 
 public class Jugador {
     private String Nombre;
-    private String Color;
+    private enum Color{};
     private Integer Posicion;
-    private Integer Dinero = 1000;
+    private Integer Dinero = 10000;
     private Integer Casillas_adquiridas;
 
+    //Creamos contructor de clase Jugador
     public Jugador(String nombre, String color, Integer posicion,  Integer casillas){
         this.Nombre = nombre;
-        this.Color = color;
         this.Posicion = posicion;
         this.Casillas_adquiridas = casillas;
     }
@@ -20,14 +20,6 @@ public class Jugador {
 
     public void setNombre(String nombre) {
         Nombre = nombre;
-    }
-
-    public String getColor() {
-        return Color;
-    }
-
-    public void setColor(String color) {
-        Color = color;
     }
 
     public Integer getPosicion() {

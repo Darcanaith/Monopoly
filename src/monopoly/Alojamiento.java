@@ -6,7 +6,6 @@ public abstract class Alojamiento implements Casilla {
         return null;
     }
 
-
     public Integer precio_compra() {
         return null;
     }
