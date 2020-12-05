@@ -6,5 +6,4 @@ public class Tablero {
     private Integer Tamano;
     private Array Conjunto_casillas;
 
-    
 }
