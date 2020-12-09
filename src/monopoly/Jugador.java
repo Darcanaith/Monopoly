@@ -1,70 +1,71 @@
 package monopoly;
 
-import java.awt.*;
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.*;
 
-public class Jugador {
-    private String Nombre;
-    private enum Color{};
-    private Integer Posicion;
-    private Integer Dinero = 10000;
-    private ArrayList<String> Casillas_adquiridas;
+public class Jugador implements Comparable<Object>,Serializable {
+    private String nombre;
+    private enum color{};
+    private Casilla posicion;
+    private Integer dinero = 10000;
+    private Set<Casilla> casillas; //casillas que tiene el jugador
 
     //Creamos contructor de clase Jugador
-    public Jugador(String nombre, String color, Integer posicion,  Integer casillas){
-        this.Nombre = nombre;
-        this.Posicion = posicion;
+    public Jugador() {
+        //Asigna(y dar a escoger) el color a un jugaodor
+        nuevoColor();//por hacer
+        // Asigna(y dar a escoger) el nombre a un jugador
+        nuevoNombre();// por hacer
+        // Al principio no estamos en ninguna casilla hasta tirar dado
+        posicion = null;
+        //Al principio nadie tiene casillas
+        casillas = new HashSet<Casilla>();
+
     }
 
-    //Eliminar casillas jugador
-    public void eliminar_jugador(){
-        this.Casillas_adquiridas.clear();//Por hacer
-    }
 
 
     //Indicar si esta encarcelado o no
     public boolean encarcelado(){
-        if(this.Posicion == null){
+        if(this.posicion == null){
             return false;}
         else{
             return true;
     }}
 
+    //Getter y Setter
+    public String getNombre() { return nombre; }
+    public Casilla getPosicion() { return posicion; }
+    public int getDinero() { return dinero; }
+    //El número de jugadores se establece según el número de jugadores que haya
+    public static int MAX_JUGADORES() { return Color.getColores().length; }
+    public Casilla setPosicion(Casilla casilla) { return posicion = casilla; }
+    public int setDinero(int dinero) throws ExNoDinero {
+        this.dinero = dinero;
+        //Si no le queda dinero, lanzamos una excepción
+        if(this.dinero <= 0) {
+            throw new ExNoDinero("Jugador " + getNombre() + " sin dinero");
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-    public String getNombre() {
-        return Nombre;
+        return this.dinero;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    //Nos permite comparar jugadores con respecto al nombre para ordenarlos
+    public int compareTo(Object o){
+        if (!(o instanceof Jugador)) {
+            throw new IllegalArgumentException("Se ha intentando comparar un jugador con otra elemento distinto");
+        }
+
+        Jugador otroJugador = (Jugador) o;
+        //le pasamos la tarea a string
+        return nombre.compareTo(otroJugador.getNombre());
     }
 
-    public Integer getPosicion() {
-        return Posicion;
-    }
 
-    public void setPosicion(Integer posicion) {
-        Posicion = posicion;
-    }
 
-    public Integer getDinero() {
-        return Dinero;
-    }
 
-    public void setDinero(Integer dinero) {
-        Dinero = dinero;
-    }
+
+
 
 
 }

@@ -6,12 +6,12 @@ public class Casa_unifamiliar extends Alojamiento {
         return super.precio_alquiler();
     }
 
-    @Override
+
     public Integer Posicion_tablero() {
         return null;
     }
 
-    @Override
+
     public String Nombre_jugador() {
         return null;
     }
