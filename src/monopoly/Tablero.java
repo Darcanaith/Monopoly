@@ -14,7 +14,7 @@ public class Tablero implements Serializable {
         int tam_max = 100;
 
 
-        Vista.clear();
+        Vista.limpiar();
         //Mientras que no nos de un valor adecuado de tablero seguimos preguntando [min..max] y divisible por 10
         while(tamanyo < tam_min || tamanyo > tam_max  || 0 != (tamanyo%10) ) {
             try {

@@ -16,9 +16,10 @@ public class Vista {
     }
 
      //Limpiar la pantalla
-    public static void clear()  {
+    public static void limpiar()  {
         for(byte i= 0; i<20; i++) {
             System.out.println("");
         }
     }
 }
+

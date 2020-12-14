@@ -46,19 +46,19 @@ abstract public class Casilla implements Serializable {
     //Devolvemos  los nombres de todos los jugadores que hay en la casilla
 
     public String getNombreJugadores() {
-        String nombres = "";
+        StringBuilder nombres = new StringBuilder();
 
         Iterator<Jugador> it=jugadores.iterator();
         while(it.hasNext())
         {
             Jugador jugador=(Jugador)it.next();
-            nombres += jugador.getNombre();
-            if(it.hasNext()) nombres += "-";
+            nombres.append(jugador.getNombre());
+            if(it.hasNext()) nombres.append("-");
         }
 
-        if(0 == nombres.length()) { nombres += "no hay jugadores"; }
+        if(0 == nombres.length()) { nombres.append("no hay jugadores"); }
 
-        return nombres;
+        return nombres.toString();
     }
 
 

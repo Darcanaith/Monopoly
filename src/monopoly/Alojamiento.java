@@ -1,6 +1,6 @@
 package monopoly;
 
-public abstract class Alojamiento implements Casilla {
+public abstract class Alojamiento extends Casilla {
 
     public Integer precio_alquiler() {
         return null;
