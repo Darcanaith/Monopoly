@@ -1,25 +1,16 @@
 package monopoly;
-import org.*;
-
-import java.util.Random;
 
 public class Dado {
-    private Integer num_dado;
-
-    public Dado() {
-       Valor_dado();
+    //Devuelve num sacado
+    static public byte tirar(Jugador jugador)  {
+        String duenyo = jugador.getNombre();
+        //Obtenemos un número al azar entre 1 y 6
+        byte numero = (byte) Caja.getNumero(1,6);
+        Vista.limpiar();
+        //MOstramos al jugador el número que ha sacado
+        Vista.print("\n"+duenyo+", has sacado un "+numero+".");
+        return numero;
     }
 
-    public Integer getNum_dado() {//Obtiene el valor que tiene el dado
-        return num_dado;
-    }
-
-    public void Valor_dado(){
-        Random random = new Random();
-        int numero_random = random.nextInt(6);
-        if (numero_random == 0){
-            numero_random = numero_random +1;
-        }
-        this.num_dado = numero_random;
-    }
 }
+

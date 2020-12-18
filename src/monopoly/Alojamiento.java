@@ -1,12 +1,8 @@
 package monopoly;
 
-public abstract class Alojamiento extends Casilla {
-
-    public Integer precio_alquiler() {
-        return null;
-    }
-
-    public Integer precio_compra() {
-        return null;
+public class Alojamiento extends Normal {
+    public Alojamiento()  {
+        super();
+        label="Alojamiento";
     }
 }

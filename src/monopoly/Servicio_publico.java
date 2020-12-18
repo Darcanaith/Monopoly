@@ -1,23 +1,11 @@
 package monopoly;
 
-public  class Servicio_publico extends Casilla {
-
-    public Integer Posicion_tablero() {
-        return null;
-    }
-
-
-    public String Nombre_jugador() {
-        return null;
-    }
-
-
-    public Integer precio_compra() {
-        return null;
-    }
-
-
-    public Integer precio_alquiler() {
-        return null;
+public  class Servicio_publico extends Normal {
+    //Constructor por defecto
+    public Servicio_publico() {
+        super();
+        label="Servicio público";
+        //Obtenemos el precio de la casilla
+        precio = Caja.getNumero(100, 500);
     }
 }

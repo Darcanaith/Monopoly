@@ -12,39 +12,44 @@ abstract public class Casilla implements Serializable {
     protected Set<Jugador> jugadores;
     //Posición que ocupa dentro del tablero
     protected int posicion;
+    protected String label;
 
 
-     //Constructor básico de una casilla, pone posicion a 0
+     //Posicion a 0
     public Casilla() { this(0);}
 
-     //Constructor que se le pasa la posición que ocupa la casilla
+     //Se le pasa la posición que ocupa la casilla
     public Casilla(int posicion) {
         this.posicion = posicion;
         jugadores = new HashSet<Jugador>();
     }
 
-
+    //Comprobacion
     public void sale(Jugador jugador) {
-        //Al mover el jugador ya no ocupa ninguna posición hasta que cae en otra casilla
+
+        //Si el jugador no estaba en la casilla se lanza una excepción
+        if(!jugadores.remove(jugador) ) {
+            throw new IllegalArgumentException("Usuario no se encuentra en la casilla");
+        }
+        //Al salir el jugador ya no ocupa ninguna posición hasta que cae en otra casilla
         jugador.setPosicion(null);
     }
 
 
     //El jugador cae en la casilla. ExNoDinero, Se lanza cuando el jugador al caer a la casilla se queda sin dinero
-    public void cae(Jugador jugador) throws ExNoDinero  {
+    public void cae(Jugador jugador) throws SinDineroExcepcion {
         //Añadimos al jugador al listado de jugadores que hay en esta casilla
         jugadores.add(jugador);
         jugador.setPosicion(this);
     }
 
-    /** ************************** Getter/Setter ********************************** */
+    //Getter y Setter
     public void setPosicion(int posicion){ this.posicion = posicion; }
-    public String getcasilla() { return casilla; }
+    public String getLabel() { return label; }
     public int getPosicion() { return posicion; }
 
 
     //Devolvemos  los nombres de todos los jugadores que hay en la casilla
-
     public String getNombreJugadores() {
         StringBuilder nombres = new StringBuilder();
 
@@ -56,10 +61,8 @@ abstract public class Casilla implements Serializable {
             if(it.hasNext()) nombres.append("-");
         }
 
-        if(0 == nombres.length()) { nombres.append("no hay jugadores"); }
+        if(0 == nombres.length()) { nombres.append("No hay jugadores"); }
 
         return nombres.toString();
     }
-
-
 }

@@ -15,11 +15,17 @@ public class Vista {
         return Input.nextLine();
     }
 
-     //Limpiar la pantalla
+     //Limpiar la pantalla(eso es lo que parece en pantalla jeje)
     public static void limpiar()  {
         for(byte i= 0; i<20; i++) {
             System.out.println("");
         }
     }
-}
 
+    //Para notificar error
+    public static void error(String texto) {
+        limpiar();
+        print("ERROR:"+texto+"\n");
+        System.exit(-1);
+    }
+}

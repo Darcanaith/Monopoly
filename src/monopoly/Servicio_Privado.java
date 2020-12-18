@@ -1,23 +1,9 @@
 package monopoly;
 
-public  class Servicio_Privado extends Casilla {
+abstract public class Servicio_Privado extends Normal{
 
-    public Integer Posicion_tablero() {
-        return null;
-    }
-
-
-    public String Nombre_jugador() {
-        return null;
-    }
-
-
-    public Integer precio_compra() {
-        return null;
-    }
-
-
-    public Integer precio_alquiler() {
-        return null;
+    public Servicio_Privado() {
+        super();
+        label="Servicio Privado";
     }
 }
