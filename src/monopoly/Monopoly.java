@@ -1,7 +1,5 @@
 package monopoly;
 
-import java.util.*;
-
 public class Monopoly {
     public static void main(String[] args){
 
@@ -13,11 +11,11 @@ public class Monopoly {
             Partida partida = juego.menuPrincipal();
             //Comenzamos la partida
             partida.jugar();
-        }catch( GanadorExcepcion e) {//Un jugador ha conseguido ganar la partida
+        }catch(GanadorExcepcion | SinDineroExcepcion e) {//Un jugador ha conseguido ganar la partida
             Vista.print(e.getMessage()+"\nLa partida ha finalizado, hay ganador.\n");
-        }catch(Exception e) {	//Si hubiera algún error, lo notificamos como es debido.
+        }/*catch(Exception e) {	//Si hubiera algún error, lo notificamos como es debido.
             Vista.error("\n Error 404: adios...\n");
-        }
+        }*/
     }
 
     ///Mostramos el menu del juego principal
@@ -26,12 +24,12 @@ public class Monopoly {
         do { //El menú seguirá mostrandose hasta que se escoja partida o se quiera acabar el juego
 
             //Cargamos el menú y las opciones del juego
-            Menu menu_principal = new Menu("Monopoly",
+            Menu menu_principal = new Menu("Bienvenido a Monopoly\n By:\n - Moustafa Mahyou\n - Daniel Carvajal\n\nQue quieres hacer?",
                     "Empezar nueva partida",
                     "Salir");
             int opcion = menu_principal.ver(); //Mostramos el menú y esperamos una elección
 
-            //Procesamos la opción escogida
+
             //Empezamos una nueva partida
             //Se selecionó acabar así que nos despedimos
             switch (opcion) {

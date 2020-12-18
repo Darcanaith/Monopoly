@@ -7,24 +7,28 @@ class Color implements Serializable{
     //Es el label del color selecionado
     private String seleccionado;
     //Listado de colores disponibles a escoger
-    private static ArrayList<String> colores;
+
+    private static ArrayList<String> colores = new ArrayList<String>() {{
+        add("Rojo");
+        add("Azul");
+        add("Verde");
+        add("Rosa");
+        add("Amarillo");
+    }};
 
     //inicialización la parte estática de la clase
     public static void main(String[] args) {
-        ArrayList<String> colores = new ArrayList<>();
-        colores.add("Rojo");
-        colores.add("Azul");
-        colores.add("Verde");
-        colores.add("Rosa");
-        colores.add("Amarillo");
+        getColores();
     }
+
     //Constructor que nos permite inicializar el objeto
     public Color() {
+
         //Si no hay más colores
         if(colores.size() < 1) {
             throw new IllegalAccessError("No hay más colores para escoger");
         }
-        //Pedimos el color que se quiera y lo guardamos
+        //Pedimos el color que quiera y lo guardamos
         seleccionado = pedirColor();
     }
 
@@ -41,12 +45,12 @@ class Color implements Serializable{
     }
 
     public String get() { return seleccionado; }
-    public String toString() { return this.get(); }
 
     //Añadir colores
+
     public static void add(String... colores) {
         //Si no se ha inicializado la lista de colores, lo hacemos a partir de los colores pasados
-        if(null == Color.colores ) {
+        if(Color.colores.isEmpty() ) {
             Color.colores = new ArrayList<String>(colores.length);
         }
 
@@ -60,10 +64,16 @@ class Color implements Serializable{
 
     }
 
+
     //colores disponibles
     public static String[] getColores() {
-        String[] base = new String[1];
-        return (String[]) colores.toArray(base);
+        String[] base = colores.toArray(new String[0]);
+
+        /*for (String s : base) {
+            System.out.println(s);
+        }*/
+
+        return base;
     }
 
     public String pedirColor() {
@@ -75,7 +85,7 @@ class Color implements Serializable{
             menu_colores.addOption(colores.get(i));
         }
 
-        //MOstramos los distintos colores para que escojan uno
+        //Mostramos los distintos colores para que escojan uno
         color_elegido = menu_colores.ver();
 
         //Elinamos el color escogido para que nadie más pueda cogerlo

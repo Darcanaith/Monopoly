@@ -6,7 +6,7 @@ abstract public class Especial extends Casilla{
     }
 
     //Devuelve los distintos tipos de casillas especiales que hay
-    static public String[] getTipos() {
+    static public String[] getTipos() {//??
         return new String[]{"Carcel", "Loteria"};
     }
 

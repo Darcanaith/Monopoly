@@ -140,7 +140,7 @@ public class Jugador implements Comparable<Object>,Serializable {
 
         do {
             //Obtenemos el nombre del jugador
-            nombre = Vista.input("\n\nPor favor, jugador " + color + ", escriba su nombre:").trim();
+            nombre = Vista.input("\n\nPor favor, jugador " + color.get() + ", escriba su nombre:").trim();
 
             //Validamos que el nombre tenga número de carácteres válidos
             if(nombre.length()<= tamanyo_min_nombre) {
@@ -159,7 +159,6 @@ public class Jugador implements Comparable<Object>,Serializable {
         if(null != color) {
             Color.add(color.get());
         }
-
         color = new Color();
     }
 
