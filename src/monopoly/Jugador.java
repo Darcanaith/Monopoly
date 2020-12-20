@@ -27,11 +27,7 @@ public class Jugador implements Comparable<Object>,Serializable {
 
     //Indicar si esta encarcelado o no
     public boolean encarcelado() {
-        if (this.posicion == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return null != posicion && posicion instanceof Carcel;
     }
 
     //Eliminar jugador

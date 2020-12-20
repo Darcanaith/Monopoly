@@ -6,9 +6,9 @@ public class Loteria extends Especial {
         label = "Lotería";
     }
 
-    //jugador ha triunfado
+    //jugador cae en loteria
     public void cae(Jugador jugador) throws SinDineroExcepcion {
-        //Lo añadimos al conjunto de jugaodres situados en la casilla
+        //Lo añadimos al conjunto de jugadores situados en la casilla
         jugadores.add(jugador);
         //Marcamos la casilla actual
         jugador.setPosicion(this);
@@ -19,6 +19,7 @@ public class Loteria extends Especial {
         Vista.print("\nEl coste por jugar son 100 euros");
 
         //Tirar el dado
+
         if(6 == Dado.tirar(jugador)) { //Si al tirar el primer dado saca un 6, continua
             Vista.print("Ya estás más cerca de ganar el euromillón.");
             Vista.print("Recuerda que sólo te falta sacar otro seis.");
@@ -34,8 +35,8 @@ public class Loteria extends Especial {
         }
 
         //Informamos al jugador de la mala suerte que tiene
-        Vista.print("\nNo conseguiste el premio y perdiste 100 euros en el intento.");
-        Vista.print("Manco :)");
+        Vista.print("\nNo conseguiste el premio y perdiste 100 euros en el intento.\n");
+        Vista.print("Manco :) \n");
         //Le quitamos 100 euros por caer en la casilla
         jugador.setDinero(jugador.getDinero() - 100);
         return;

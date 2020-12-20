@@ -30,7 +30,7 @@ public class Carcel extends Especial {
             Vista.print("\nEnhorabuena, sales libre el próximo turno");
         }else { //Sino saca un 5 le tocará seguir estando en la cárcel
             Vista.print("\nPor ahora, sigues en la cárcel.");
-            Vista.print("Yo de tí no me agacharía en la ducha...");
+            Vista.print("Yo de tí no me agacharía en la ducha...\n");
         }
     }
 
@@ -44,6 +44,6 @@ public class Carcel extends Especial {
         atrapados.add(jugador);
         //Le decimos al jugador que ha caido en la carcel
         Vista.print("\nVaya looser estas echo");
-        Vista.print("\nHas entrado en la carcel ¿Tienes abogado?");
+        Vista.print("\nHas entrado en la carcel ¿Tienes abogado? \n");
     }
 }
