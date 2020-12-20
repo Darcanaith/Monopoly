@@ -8,7 +8,7 @@ public class Jugador implements Comparable<Object>,Serializable {
     private String nombre;
     private Color color;
     private Casilla posicion;
-    private Integer dinero = 1000;
+    private Integer dinero = 10000;
     private Set<Casilla> casillas; //casillas que tiene el jugador
 
     //Creamos constructor de clase Jugador
