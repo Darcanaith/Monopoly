@@ -93,7 +93,7 @@ public class Jugador implements Comparable<Object>,Serializable {
         //Mostramos informacion del nombre
         string += String.format("%-25s", nombre);
         //Mostramos la información del color
-        string += String.format(";%-10s", color );
+        string += String.format(";%-10s", color.get());
         //Mostramos la información del dinero restante del jugador
         string += String.format(";%s", f.format(dinero)+" euros");
 

@@ -1,5 +1,8 @@
 package monopoly;
+import jdk.dynalink.beans.StaticClass;
+
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 abstract public class Normal extends Casilla{
@@ -64,15 +67,49 @@ abstract public class Normal extends Casilla{
     }
 
 
+
+
     static public String[] getTipos() {
         return new String[]{"Casa_unifamiliar","Edificio","CentroComercial","Hotel","Restaurante","Agua","Gas","Luz","Telefono"};
     }
+
+
+
+
 
     //Factory casillas
     static public Casilla getCasilla(String tipo) {
         try {
             //Obtenemos el objeto de la clase pedida
-            return (Casilla) Class.forName("monopoly.Casa_unifamiliar"+"monopoly.Edificio"+"monopoly.CentroComercial"+"monopoly.Hotel"+"monopoly.Restaurante"+"monopoly.Agua"+"monopoly.Gas"+"monopoly.Luz"+"monopoly.Telefono"+tipo.trim()).newInstance();
+            if (tipo.equals("Casa_unifamiliar")){
+                return new Casa_unifamiliar();
+            }
+            else if (tipo.equals("Edificio")){
+                return new Edificio();
+            }
+            else if(tipo.equals("CentroComercial")){
+                return new CentroComercial();
+            }
+            else if(tipo.equals("Hotel")){
+                return new Hotel();
+            }
+            else if(tipo.equals("Restaurante")){
+                return new Restaurante();
+            }
+            else if(tipo.equals("Agua")){
+                return new Agua();
+            }
+            else if(tipo.equals("Gas")){
+                return new Gas();
+            }
+            else if(tipo.equals("Luz")){
+                return new Luz();
+            }
+            else{
+                return new Telefono();
+            }
+
+            //return (Casilla) Class.forName("Monopoly.Casa_unifamiliar"+"Edificio"+"CentroComercial"+"Hotel"+"Restaurante"+"Agua"+"Gas"+"Luz"+"Telefono"+tipo.trim()).newInstance();
         } catch (Exception e) {
             //Si no es un tipo válido, le mandamos una excepción.
             throw new IllegalArgumentException("Tipo de casilla no especial no encontrado");

@@ -50,9 +50,9 @@ public class Tablero implements Serializable{
     //Pedir num casillas
     private int pedirTamanyo() {
         int tamanyo = 0;
-        //Tomamos del archivo de configuración la cantidad mínima que puede tener el tablero
+        //Cantidad mínima que puede tener el tablero
         int tam_min = 20;
-        //Tomamos del archivo de configuración la cantidad máxima que puede tener el tablero
+        //Cantidad máxima que puede tener el tablero
         int tam_max = 100;
 
 
@@ -137,7 +137,7 @@ public class Tablero implements Serializable{
     public String toString() {
         String tablero = new String("");
         //Cabecera del número de casilla
-        tablero += String.format("\n%3s:",  "Cas"          );
+        tablero += String.format("\n%3s:",  "Num"          );
         //Cabecera de tipo
         tablero += String.format("%-22s",   "Tipo"         );
         //Cabecera del precio de compra
@@ -154,7 +154,9 @@ public class Tablero implements Serializable{
 
         //Ahora por cada casilla, vamos devolviendo sus datos
         for(int i=0; i<casillas.length; i++) {
-            tablero += casillas[i];
+            if (!casillas[i].getLabel().equals("Salida")){
+                tablero += casillas[i];
+            }
         }
         tablero += "\n";
 

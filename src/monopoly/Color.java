@@ -16,7 +16,7 @@ class Color implements Serializable{
         add("Amarillo");
     }};
 
-    //inicialización la parte estática de la clase
+    //inicialización la parte estática de la clase, pruebas
     public static void main(String[] args) {
         getColores();
     }
@@ -61,7 +61,6 @@ class Color implements Serializable{
                 i++;
             }
         }
-
     }
 
 
