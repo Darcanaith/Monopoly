@@ -14,7 +14,7 @@ public class Tablero implements Serializable{
         //El +1 es para añadir la casilla de salida
         casillas = new Casilla[tamanyo+1];
 
-        //Creamos una caja de números del tamaño selecionado
+        //Creamos una caja de números del tamaño seleccionado
         Caja caja = new Caja(tamanyo);
         //Colocamos la casilla de salida
         setSalida(caja);
@@ -160,7 +160,7 @@ public class Tablero implements Serializable{
         }
         tablero += "\n";
 
-        //Devolemos toda la información del tablero
+        //Devolvemos toda la información del tablero
         return tablero;
     }
 }

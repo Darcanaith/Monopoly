@@ -4,7 +4,7 @@ import java.util.*;
 
 
 public class Partida implements Serializable{
-    //Tablero de juego, no es más que un sucesión de casillas de destintos tipos
+    //Tablero de juego, no es más que un sucesión de casillas de distintos tipos
     private Tablero tablero;
     //Lista de jugadores(se usa lista para mantener el orden de los jugadores )
     private ArrayList<Jugador> jugadores;
@@ -17,7 +17,7 @@ public class Partida implements Serializable{
         turno = 0;
         //Construimos/inicializamos los jugadores de la partida
         crearJugadores();
-        //Construimos/inicalizamos el tablero de partida
+        //Construimos/inicializamos el tablero de partida
         tablero = new Tablero();
 
         //Ponemos a todos los jugadores en la casilla de salida
@@ -46,7 +46,7 @@ public class Partida implements Serializable{
         int opcion = 0;
 
         //La partida seguirá en principio hasta que no se le de a salir en el menú
-        while(opcion != 4) {
+        while(opcion != 3) {
 
             //Cargamos el título y las opciones del menú de juego
             Menu menu_juego = new Menu(getEstadoJugadores(),
@@ -65,7 +65,7 @@ public class Partida implements Serializable{
                     try {
                         jugador_turno.turno(tablero);
                         nextTurno(); //Pasamos al siguiente turno
-                    }catch(SinDineroExcepcion e) {
+                    } catch (SinDineroExcepcion e) {
                         //eliminamos al jugador eliminado de la lista de jugadores
                         jugadores.remove(turno);
                         //devolvemos las cosas del jugador
@@ -73,19 +73,21 @@ public class Partida implements Serializable{
                         //retrasamos un turno por el jugador que acaba de ser eliminado
                         turno--;
                         //Pasamos al siguiente turno
-                        Vista.print("\nEl jugador "+jugador_turno.getNombre()+" se quedó sin dinero.");
-                        Vista.print("\nPor tanto será expulsado de la partida y sus pertenencias irá a la banca.");
+                        Vista.print("\nEl jugador " + jugador_turno.getNombre() + " se quedó sin dinero.");
+                        Vista.print("\nPor tanto será expulsado de la partida y sus pertenencias irá a la banca.\n");
                         nextTurno(); //pasamos al siguiente turno
                     }
                     break;
                 /* Ver tablero */
                 case 2:
                     //Vemos el estado de los jugadores y del tablero
-                    Vista.print("Jugadores:"+getEstadoJugadores()+"\n\n" +
-                            "Tablero:"+tablero); break;
+                    Vista.print("Jugadores:" + getEstadoJugadores() + "\n\n" +
+                            "Tablero:" + tablero);
+                    break;
                 case 3:
+                    Vista.print("Gracias por jugar al Monopoly. Hasta otra!");
                 default:
-                    /* No hacemos nada, pasamos al menú principal del juego */
+                    //Salir
             }
         }
 
@@ -95,8 +97,11 @@ public class Partida implements Serializable{
     private int nextTurno() throws GanadorExcepcion {
         //Comprobamos si ya ha terminado la partida o no
         if(1 == jugadores.size() ) {
-            ///Lanzamos la excexpión de que ya hay un ganador.
-            throw new GanadorExcepcion("El jugador "+jugadores.get(turno).getNombre()+" ha ganado la partida!!!!\n");
+            if (turno == -1){
+                turno +=1;
+            }
+            ///Lanzamos la excepción de que ya hay un ganador.
+            throw new GanadorExcepcion("\nEl jugador "+jugadores.get(turno).getNombre()+" ha ganado la partida!!!!\n");
         }
         //incrementamos para pasar de turno
         turno++;
@@ -133,15 +138,15 @@ public class Partida implements Serializable{
         int num_jugadores = -1;
         int max_jugadores = Jugador.MAX_JUGADORES();
 
-        //Seguir pidiendo el número de jugadores hasta que sesa una cantidad válida [2..NUM_MAX]
+        //Seguir pidiendo el número de jugadores hasta que sea una cantidad válida [2..NUM_MAX]
         while(num_jugadores<2 || num_jugadores>max_jugadores) {
             Vista.limpiar();
-            if(num_jugadores != -1) { //Sino se seleciono los jugadores permitidos, mostramos error y volvemos preguntar
+            if(num_jugadores != -1) { //Sino se selecciono los jugadores permitidos, mostramos error y volvemos preguntar
                 Vista.print("\nCantidad de jugadores incorrecta, bobo o que");
             }
 
             try {
-                //preguntarmos cuantos jugadores
+                //preguntamos cuantos jugadores
                 String total = Vista.input("\nPor favor, indique el número de jugadores(2-"+max_jugadores+"):");
                 //Validamos el total devuelto y comprobamos que sea un numero
                 num_jugadores = Integer.parseInt(total);

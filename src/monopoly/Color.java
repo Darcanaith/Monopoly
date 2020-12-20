@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class Color implements Serializable{
 
-    //Es el label del color selecionado
+    //Es el label del color seleccionado
     private String seleccionado;
     //Listado de colores disponibles a escoger
 
@@ -34,7 +34,7 @@ class Color implements Serializable{
 
     //Constructor que recibe el color a ser usado
     public Color(String color) {
-        //Al selecionar un color hay que quitarlo del listado de colores disponible
+        //Al seleccionar un color hay que quitarlo del listado de colores disponible
         if (colores.contains(color) ) {
             seleccionado = color;
             colores.remove(color);
@@ -68,16 +68,12 @@ class Color implements Serializable{
     public static String[] getColores() {
         String[] base = colores.toArray(new String[0]);
 
-        /*for (String s : base) {
-            System.out.println(s);
-        }*/
-
         return base;
     }
 
     public String pedirColor() {
         int color_elegido = 0;
-        Menu menu_colores = new Menu("Selección de color");
+        Menu menu_colores = new Menu("\nSelección de color: ");
 
         //Cargamos el menú con los colores disponibles
         for(int i= 0; i<colores.size(); i++) {
@@ -87,7 +83,7 @@ class Color implements Serializable{
         //Mostramos los distintos colores para que escojan uno
         color_elegido = menu_colores.ver();
 
-        //Elinamos el color escogido para que nadie más pueda cogerlo
+        //Eliminamos el color escogido para que nadie más pueda cogerlo
         return colores.remove(color_elegido-1);
     }
 }

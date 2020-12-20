@@ -21,7 +21,7 @@ public class Monopoly {
     ///Mostramos el menu del juego principal
     public Partida menuPrincipal() throws SinDineroExcepcion {
         Partida partida = null;
-        do { //El menú seguirá mostrandose hasta que se escoja partida o se quiera acabar el juego
+        do { //El menú seguirá mostrándose hasta que se escoja partida o se quiera acabar el juego
 
             //Cargamos el menú y las opciones del juego
             Menu menu_principal = new Menu("Bienvenido a Monopoly\n By:\n - Moustafa Mahyou\n - Daniel Carvajal\n\nQue quieres hacer?",
@@ -31,7 +31,7 @@ public class Monopoly {
 
 
             //Empezamos una nueva partida
-            //Se selecionó acabar así que nos despedimos
+            //Se seleccionó acabar así que nos despedimos
             switch (opcion) {
                 case 1 -> partida = new Partida();
                 case 2 -> {

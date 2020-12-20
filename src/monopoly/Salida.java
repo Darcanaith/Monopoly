@@ -1,7 +1,6 @@
 package monopoly;
 
 //Solo se utiliza para la salida, luego queda inutilizada
-
 public class Salida extends Casilla{
     public Salida() {
         super();

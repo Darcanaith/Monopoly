@@ -27,7 +27,7 @@ public class Loteria extends Especial {
                 Vista.print("Menos 100 euros por el boleto del juego");
                 //Calculamos el premio(10% del total de dinero que tiene)
                 int premio = Math.round(jugador.getDinero()/10);
-                //Se lo asignamos(quitandole 100 euros por caer en la casilla )
+                //Se lo asignamos(quitándole 100 euros por caer en la casilla )
                 jugador.setDinero(jugador.getDinero() + premio - 100);
                 return;
             }

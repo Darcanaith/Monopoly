@@ -1,12 +1,12 @@
 package monopoly;
 import java.util.ArrayList;
 
-//Aqui se generan todos los random
+//Aquí se generan todos los random
 public class Caja {
     //Contiene todos los números que luego se irán sacando al azar
     private ArrayList<Integer> numeros;
 
-    //Constructor por defecto de Caja, por defecto 100 nums aleatorios
+    //Constructor por defecto de Caja, por defecto 100 numeros aleatorios
     public Caja() {
         this(100);
     }

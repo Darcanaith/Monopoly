@@ -8,10 +8,10 @@ public class Jugador implements Comparable<Object>,Serializable {
     private String nombre;
     private Color color;
     private Casilla posicion;
-    private Integer dinero = 10000;
+    private Integer dinero = 1000;
     private Set<Casilla> casillas; //casillas que tiene el jugador
 
-    //Creamos contructor de clase Jugador
+    //Creamos constructor de clase Jugador
     public Jugador() {
         //Asigna(y dar a escoger) el color a un jugador
         nuevoColor();
@@ -32,7 +32,7 @@ public class Jugador implements Comparable<Object>,Serializable {
 
     //Eliminar jugador
     public void eliminar() {
-        // Devolvemos el color que habiamos escogido
+        // Devolvemos el color que habíamos escogido
         if(null != color) {
             Color.add(color.get());
         }
@@ -44,9 +44,7 @@ public class Jugador implements Comparable<Object>,Serializable {
                 Normal tcasilla = (Normal) casilla;
                 tcasilla.setDuenyo(null);
             }
-
         }
-
     }
 
     //Getter y Setter
@@ -86,7 +84,7 @@ public class Jugador implements Comparable<Object>,Serializable {
         Locale local = new Locale("ES", "ES");
         NumberFormat f = NumberFormat.getNumberInstance(local);
         String string = new String();
-        //Mostramos informacion del nombre
+        //Mostramos información del nombre
         string += String.format("%-25s", nombre);
         //Mostramos la información del color
         string += String.format(";%-10s", color.get());
@@ -110,10 +108,10 @@ public class Jugador implements Comparable<Object>,Serializable {
 
         //Tiramos el dado para mover el jugador
         byte numero = Dado.tirar(this);
-        //averiguamo la casilla despues del movimiento
+        //averiguamos la casilla después del movimiento
         Casilla casilla_destino = tablero.moverFicha(casilla_inicio, numero);
-        //Informamos al jugaor de la nueva casilla en la que se movió
-        Vista.print("\n Has caido en la casilla número " + casilla_destino.getPosicion() + ":" + casilla_destino.getLabel());
+        //Informamos al jugador de la nueva casilla en la que se movió
+        Vista.print("\n Has caído en la casilla número " + casilla_destino.getPosicion() + ":" + casilla_destino.getLabel());
         //movemos al jugador hasta su casilla destino
         casilla_destino.cae(this);
     }
@@ -127,7 +125,7 @@ public class Jugador implements Comparable<Object>,Serializable {
         return this.casillas.remove(casilla);
     }
 
-    //inicializacion
+    //inicialización
     public void nuevoNombre() {
 
         //Cogemos la longitud minima y maxima que puede tener el nombre del jugador
@@ -138,7 +136,7 @@ public class Jugador implements Comparable<Object>,Serializable {
             //Obtenemos el nombre del jugador
             nombre = Vista.input("\n\nPor favor, jugador " + color.get() + ", escriba su nombre:").trim();
 
-            //Validamos que el nombre tenga número de carácteres válidos
+            //Validamos que el nombre tenga número de caracteres válidos
             if(nombre.length()< tamanyo_min_nombre) {
                 Vista.print("\nNombre demasiado corto(min " + tamanyo_min_nombre + " letras).");
             }else	if(nombre.length() > tamanyo_max_nombre) {
@@ -150,12 +148,11 @@ public class Jugador implements Comparable<Object>,Serializable {
         }while(nombre.length() < tamanyo_min_nombre || nombre.length() > tamanyo_max_nombre);
     }
 
-    //Devolvemos el color que habiamos escogido
+    //Devolvemos el color que habíamos escogido
     public void nuevoColor() {
         if(null != color) {
             Color.add(color.get());
         }
         color = new Color();
     }
-
 }

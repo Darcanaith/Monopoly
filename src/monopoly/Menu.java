@@ -38,12 +38,12 @@ public class Menu {
         int min = 1;
         //La opción máxima
         int max = opciones.size();
-        //Por defecto no hay opción selecionada
+        //Por defecto no hay opción seleccionada
         int selec = -1;
 
         do {
             //Si hay un título de menú, lo mostramos
-            if(this.title != "") {
+            if(!this.title.equals("")) {
                 Vista.print(title+"\n\n");
             }
 
@@ -51,15 +51,15 @@ public class Menu {
             for(int i = min; i<=max; i++) {
                 Vista.print(" "+i+"."+opciones.get(i-1)+"\n");
             }
-            //Comprobar que ha escogido opcion valida
+            //Comprobar que ha escogido opción valida
             if(selec != -1) {
                 Vista.print("\n Opción no válida. \n Vuelva a seleccionar una opción correcta.\n");
             }
             try {
-                //Optenemos la opción elegida pasandola a entero
+                //Obtenemos la opción elegida pasándola a entero
                 selec = Integer.parseInt(Vista.input("\nSeleccione una opción("+min+"-"+max+"):"));
             }catch(NumberFormatException e) {
-                //Si se seleciono algo no numérico consideramos que escribió un 0
+                //Si se selecciono algo no numérico consideramos que escribió un 0
                 selec = 0;
             }
             //Seguimos mientras que no se haya escogido una opción de las disponible

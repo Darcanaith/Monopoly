@@ -5,7 +5,7 @@ import java.util.*;
 
 //set, nos permite no tener elementos repetidos
 
-//las demas heredan de casilla
+//las otras heredan de casilla
 abstract public class Casilla implements Serializable {
     protected String casilla;
     //jugadores que forman parte de la partida
@@ -15,16 +15,16 @@ abstract public class Casilla implements Serializable {
     protected String label;
 
 
-     //Posicion a 0
+    //Posicion a 0
     public Casilla() { this(0);}
 
-     //Se le pasa la posición que ocupa la casilla
+    //Se le pasa la posición que ocupa la casilla
     public Casilla(int posicion) {
         this.posicion = posicion;
         jugadores = new HashSet<Jugador>();
     }
 
-    //Comprobacion
+    //Comprobación
     public void sale(Jugador jugador) {
 
         //Si el jugador no estaba en la casilla se lanza una excepción
@@ -43,7 +43,7 @@ abstract public class Casilla implements Serializable {
         jugador.setPosicion(this);
     }
 
-    //Getter y Setter
+    //Getters y Setter
     public void setPosicion(int posicion){ this.posicion = posicion; }
     public String getLabel() { return label; }
     public int getPosicion() { return posicion; }

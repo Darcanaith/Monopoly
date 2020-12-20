@@ -7,7 +7,7 @@ public class Dado {
         //Obtenemos un número al azar entre 1 y 6
         byte numero = (byte) Caja.getNumero(1,6);
         Vista.limpiar();
-        //MOstramos al jugador el número que ha sacado
+        //Mostramos al jugador el número que ha sacado
         Vista.print("\n"+duenyo+", has sacado un "+numero+".");
         return numero;
     }

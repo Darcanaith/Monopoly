@@ -1,8 +1,6 @@
 package monopoly;
-import jdk.dynalink.beans.StaticClass;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Locale;
 
 abstract public class Normal extends Casilla{
@@ -24,7 +22,7 @@ abstract public class Normal extends Casilla{
             //Si el jugador tiene dinero, seguimos adelante
             if(precio < jugador.getDinero() ) {
                 String respuesta;
-                //pregutnamos al jugador si quiere comprarla
+                //preguntamos al jugador si quiere comprarla
                 do {
                     respuesta = Vista.input("\n¿Te gustaría comprar "+label+" por "+getPrecioFormated()+" (s/n)?");
 
@@ -38,9 +36,9 @@ abstract public class Normal extends Casilla{
                         Vista.print("Felicidades, has comprado la casilla "+label+"\n");
                         //Añadimos la casilla al listado de casillas del jugador
                         jugador.addCasilla(this);
-                        break; //Saltamos el bucle y ahorramos comprobacionesçççç
+                        break; //Saltamos el bucle y ahorramos comprobaciones
                     }
-                    //El bucle seguirá hasta que no se escoga entre s/n
+                    //El bucle seguirá hasta que no se escoja entre s/n
                 }while(!respuesta.equals("n") && !respuesta.equals("N"));
             }else {
                 //El jugador no tiene dinero para comprar la casilla y se lo decimos
@@ -54,7 +52,7 @@ abstract public class Normal extends Casilla{
             //si el dueño está en la cárcel no tiene porque pagarle el jugador
             if( !jugador.encarcelado()) {
                 //le informamos de lo que tiene que pagar el jugador
-                Vista.print("Por ello tienes que pagarle "+getCosteFormated());
+                Vista.print(" Por ello tienes que pagarle "+getCosteFormated());
                 jugador.setDinero(jugador.getDinero() - getCoste());
             }else {
                 //Informamos que se libra de pagar al dueño porque el dueño está en la carcel.
@@ -121,7 +119,7 @@ abstract public class Normal extends Casilla{
 
     //Precio de la casilla
     public int getPrecio() { return precio; }
-    //Precio de la casila en euros
+    //Precio de la casilla en euros
     public String getPrecioFormated() {
         Locale local = new Locale("ES", "ES");
 
