@@ -35,7 +35,7 @@ abstract public class Normal extends Casilla{
                         //Le asignamos como dueño
                         setDuenyo(jugador);
                         //Le mostramos claramente que casilla ha comprado
-                        Vista.print("Felicidades, has comprado la casilla "+label);
+                        Vista.print("Felicidades, has comprado la casilla "+label+"\n");
                         //Añadimos la casilla al listado de casillas del jugador
                         jugador.addCasilla(this);
                         break; //Saltamos el bucle y ahorramos comprobacionesçççç

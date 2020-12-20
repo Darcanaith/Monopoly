@@ -14,7 +14,6 @@ public class Loteria extends Especial {
         jugador.setPosicion(this);
 
         //Le mostramos la información sobre esta casilla
-        Vista.print("\nEs el momento de probar suerte con tus dados...");
         Vista.print("\nSi sacas dos seis tu dinero se verá incrementado en un 10%.");
         Vista.print("\nEl coste por jugar son 100 euros");
 

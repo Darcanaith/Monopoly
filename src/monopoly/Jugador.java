@@ -139,7 +139,7 @@ public class Jugador implements Comparable<Object>,Serializable {
             nombre = Vista.input("\n\nPor favor, jugador " + color.get() + ", escriba su nombre:").trim();
 
             //Validamos que el nombre tenga número de carácteres válidos
-            if(nombre.length()<= tamanyo_min_nombre) {
+            if(nombre.length()< tamanyo_min_nombre) {
                 Vista.print("\nNombre demasiado corto(min " + tamanyo_min_nombre + " letras).");
             }else	if(nombre.length() > tamanyo_max_nombre) {
                 Vista.print("\nNombre demasiado largo(max " + tamanyo_max_nombre + " letras).");

@@ -17,7 +17,7 @@ public class Vista {
 
      //Limpiar la pantalla(eso es lo que parece en pantalla jeje)
     public static void limpiar()  {
-        for(byte i= 0; i<15; i++) {
+        for(byte i= 0; i<2; i++) {
             System.out.println("");
         }
     }
